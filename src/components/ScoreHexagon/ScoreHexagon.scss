@@ -76,6 +76,13 @@
   transition: background-color 0.3s;
 }
 
+.hexagon-container--current-score::after {
+  background-color: #3891B1;
+}
+
+.hexagon-container--current-score::before {
+  background-color: #3891B1;
+}
 
 .hexagon-score {
   width: 240px;

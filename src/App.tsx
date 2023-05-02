@@ -9,9 +9,11 @@ import money from './api/money.json';
 
 function App() {
   const [gameStage, setGameStage] = useState<GameStage>(GameStage.START);
+  const [currentQuestionId, setCurrentQuestionId] = useState<number>(1);
   const handleStart = useCallback(() => {
     setGameStage(GameStage.GAME);
   }, []);
+  const currentScore = `$${money[currentQuestionId].gain.toLocaleString()} earned`;
 
   return (
     <>
@@ -21,9 +23,12 @@ function App() {
           questions={questionsWithAnswers}
           money={money}
           onStageChange={setGameStage}
+          onQuestionChange={setCurrentQuestionId}
+          currentQuestionId={currentQuestionId}
         />
       )}
-      {gameStage === GameStage.GAMEOVER && <GameOver />}
+      {gameStage === GameStage.GAMEOVER
+      && <GameOver onStart={handleStart} currentScore={currentScore} />}
     </>
   );
 }

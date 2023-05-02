@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React from 'react';
 import './Game.scss';
 import { Question } from '../../types/QuestionWithUnswer';
 import { Money } from '../../types/Money';
@@ -11,10 +11,17 @@ interface Props {
   questions: Question[];
   money: Money[];
   onStageChange: React.Dispatch<React.SetStateAction<GameStage>>;
+  onQuestionChange: React.Dispatch<React.SetStateAction<number>>;
+  currentQuestionId: number;
 }
 
-export const Game: React.FC<Props> = ({ questions, money, onStageChange }) => {
-  const [currentQuestionId, setCurrentQuestionId] = useState<number>(1);
+export const Game: React.FC<Props> = ({
+  questions,
+  money,
+  onStageChange,
+  onQuestionChange,
+  currentQuestionId,
+}) => {
   const currentQuestion = questions.find(
     (question) => question.id === currentQuestionId,
   );
@@ -28,7 +35,7 @@ export const Game: React.FC<Props> = ({ questions, money, onStageChange }) => {
           answers={answers!}
           correct={correctAnswer!}
           onStageChange={onStageChange}
-          onQuestionChange={setCurrentQuestionId}
+          onQuestionChange={onQuestionChange}
         />
       </div>
       <div className="result-container">

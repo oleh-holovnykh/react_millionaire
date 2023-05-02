@@ -62,6 +62,9 @@ export const AnswersBlock: React.FC<Props> = ({
     }
   }, [wrongAnswers, correctAnswers, correct, onStageChange]);
 
+  const disablePointerEvent = (correct.length === selectedAnswers.length)
+  || (correct.length === correctAnswers.length + wrongAnswers.length);
+
   return (
     <div className="answers">
       {answers.map((answer, id) => {
@@ -88,6 +91,7 @@ export const AnswersBlock: React.FC<Props> = ({
               content={content}
               hexagonStyle={hexagonStyle}
               onAnswerClick={handleAnswerClick}
+              disablePointerEvent={disablePointerEvent}
             />
           </div>
         );

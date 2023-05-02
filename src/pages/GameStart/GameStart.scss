@@ -8,6 +8,7 @@
 .container-wraper{
   display: flex;
   justify-content: center;
+  height: 100vh;
 }
 
 .container {
@@ -37,6 +38,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
+  cursor: pointer;
 }
 
 .start-btn:hover {

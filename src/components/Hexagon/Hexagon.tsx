@@ -7,16 +7,22 @@ interface Props {
   content: string;
   hexagonStyle: HexagonStyle;
   onAnswerClick: (selectedAnswer: string) => void;
+  disablePointerEvent: boolean;
 }
 
-export const Hexagon: React.FC<Props> = ({ content, hexagonStyle, onAnswerClick = () => {} }) => {
+export const Hexagon: React.FC<Props> = ({
+  content,
+  hexagonStyle,
+  onAnswerClick = () => {},
+  disablePointerEvent,
+}) => {
   const isScore = (hexagonStyle === HexagonStyle.SCORE)
   || (hexagonStyle === HexagonStyle.CURRENT_SCORE);
   const isCurrentScore = hexagonStyle === HexagonStyle.CURRENT_SCORE;
   const isSelected = hexagonStyle === HexagonStyle.SELECTED_ANSWER;
   const isWrong = hexagonStyle === HexagonStyle.WRONG_ANSWER;
   const isCorrect = hexagonStyle === HexagonStyle.CORRECT_ANSWER;
-  const isDisabled = isSelected || isWrong || isCorrect;
+  const isDisabled = isSelected || isWrong || isCorrect || disablePointerEvent;
 
   const answer = content.slice(2);
 
