@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/react_millionaire/static/css/main.77bfcd35.css",
-    "main.js": "/react_millionaire/static/js/main.36aa8f5d.js",
+    "main.css": "/react_millionaire/static/css/main.73870539.css",
+    "main.js": "/react_millionaire/static/js/main.a521075e.js",
     "static/media/thumbUp.svg": "/react_millionaire/static/media/thumbUp.0fa02c02856a4ad3768c9e224364d117.svg",
     "index.html": "/react_millionaire/index.html",
-    "main.77bfcd35.css.map": "/react_millionaire/static/css/main.77bfcd35.css.map",
-    "main.36aa8f5d.js.map": "/react_millionaire/static/js/main.36aa8f5d.js.map"
+    "static/media/cross.svg": "/react_millionaire/static/media/cross.46c988ed96b5dff532f35b64d057e9c3.svg",
+    "static/media/burger.svg": "/react_millionaire/static/media/burger.4cc3cba447218668ce9e22ca3a4cea9b.svg",
+    "main.73870539.css.map": "/react_millionaire/static/css/main.73870539.css.map",
+    "main.a521075e.js.map": "/react_millionaire/static/js/main.a521075e.js.map"
   },
   "entrypoints": [
-    "static/css/main.77bfcd35.css",
-    "static/js/main.36aa8f5d.js"
+    "static/css/main.73870539.css",
+    "static/js/main.a521075e.js"
   ]
 }
