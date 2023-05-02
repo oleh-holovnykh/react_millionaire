@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { Hexagon } from '../Hexagon';
 import { HexagonStyle } from '../../types/HexagonStyle';
-import { alphabet } from '../../helpers/alphabet';
 import './AnswersBlock.scss';
 import { GameStage } from '../../types/GameStage';
 
@@ -23,11 +24,11 @@ export const AnswersBlock: React.FC<Props> = ({
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
 
-  const handleAnswerClick = (selectedAnswer: string) => {
+  const handleAnswerClick = useCallback((selectedAnswer: string) => {
     if (selectedAnswers.length < correct.length) {
       setSelectedAnswers((state) => [...state, selectedAnswer]);
     }
-  };
+  }, [selectedAnswers, correct.length]);
 
   useEffect(() => {
     if (selectedAnswers.length === correct.length) {
@@ -54,21 +55,27 @@ export const AnswersBlock: React.FC<Props> = ({
   }, [correct.length, correctAnswers, onQuestionChange]);
 
   useEffect(() => {
-    if ((correct.length === wrongAnswers.length + correctAnswers.length
-      && wrongAnswers.length !== 0)) {
+    if (
+      correct.length === wrongAnswers.length + correctAnswers.length
+      && wrongAnswers.length !== 0
+    ) {
       setTimeout(() => {
         onStageChange(GameStage.GAMEOVER);
       }, 2500);
     }
   }, [wrongAnswers, correctAnswers, correct, onStageChange]);
 
-  const disablePointerEvent = (correct.length === selectedAnswers.length)
-  || (correct.length === correctAnswers.length + wrongAnswers.length);
+  const disablePointerEvent = useMemo(() => (
+    correct.length === selectedAnswers.length
+    || correct.length === correctAnswers.length + wrongAnswers.length
+  ), [selectedAnswers, correctAnswers, wrongAnswers, correct]);
+
+  const alphabet = useMemo(() => 'abcdefghijklmnopqrstuvwxyz', []);
 
   return (
     <div className="answers">
       {answers.map((answer, id) => {
-        let hexagonStyle = HexagonStyle.ANSWER;
+        let hexagonStyle = HexagonStyle.DEFAULT_ANSWER;
 
         if (selectedAnswers.includes(answer)) {
           hexagonStyle = HexagonStyle.SELECTED_ANSWER;
@@ -81,7 +88,6 @@ export const AnswersBlock: React.FC<Props> = ({
         if (wrongAnswers.includes(answer)) {
           hexagonStyle = HexagonStyle.WRONG_ANSWER;
         }
-
         const identifier = alphabet[id];
         const content = `${identifier} ${answer}`;
 

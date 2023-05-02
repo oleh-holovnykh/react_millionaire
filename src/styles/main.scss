@@ -1,10 +1,29 @@
+@import './variables';
+@import './mixins';
 @font-face {
   font-family: 'Inter', sans-serif;
   src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  font-weight: 600;
 }
 @import url("./reset.css");
 
-
 * {
   font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --selected-bg-color: #FFF3EB;
+  --selected-border-color: #FF8B37;
+  --correct-bg-color: #E6FAEA;
+  --correct-border-color: #47D867;
+  --wrong-bg-color: #FDEEED;
+  --wrong-border-color: #EC6259;
+  --hover-border-color: #1E6A8E;
+  --inactive-btn-color: #1E6A8E;
+  --hover-btn-color: #3891B1;
+  --pressed-btn-color: #003B63;
+  --border-inactive-color:#D0D0D8;
+  --background-color: #fff;
+  --text-color:#080808;
+  --hexagon-answer-color: #3891B1;
 }

@@ -1,6 +1,13 @@
+@import '../../styles/mixins';
+
 .pre-title {
   font-weight: 600;
   font-size: 32px;
   color: #1C1C21;
   opacity: 0.5;
+
+  @include onPhone {
+    margin-bottom: 8px;
+    text-align: center;
+  }
 }

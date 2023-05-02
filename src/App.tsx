@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import 'normalize.css';
 import { GameStart } from './pages/GameStart';
 import { Game } from './pages/Game';
@@ -12,8 +12,20 @@ function App() {
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(1);
   const handleStart = useCallback(() => {
     setGameStage(GameStage.GAME);
+    setCurrentQuestionId(1);
   }, []);
-  const currentScore = `$${money[currentQuestionId].gain.toLocaleString()} earned`;
+
+  const currentScore = useMemo(() => {
+    if (currentQuestionId <= money.length) {
+      return `$${money[currentQuestionId - 1].gain.toLocaleString()} earned`;
+    }
+    setGameStage(GameStage.GAMEOVER);
+
+    return `$${money[money.length - 1].gain.toLocaleString()} earned`;
+  }, [currentQuestionId]);
+
+  // eslint-disable-next-line no-console
+  console.log(currentQuestionId);
 
   return (
     <>

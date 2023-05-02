@@ -1,12 +1,25 @@
+@import '../../styles/mixins';
+
 .answers {
   display: flex;
+  
   flex-wrap: wrap;
   width: 846px;
   white-space: normal;
+
+  @include onPhone {
+    width: fit-content;
+    flex-direction: column;
+  }
 }
 
 .answer-wrapper {
   width: 423px;
   height: 176;
   margin-bottom: 32px;
+
+  @include onPhone {
+    margin-bottom: 8px;
+    width: 100vw;
+  }
 }

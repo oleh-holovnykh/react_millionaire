@@ -7,7 +7,7 @@
   {
     "questionId": 2,
     "answers": ["Michelangelo", "Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso"],
-    "correct" : ["Leonardo da Vinci"]
+    "correct" : ["Leonardo da Vinci","Michelangelo"]
   },
   {
     "questionId": 3,
