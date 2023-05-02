@@ -1,3 +1,3 @@
 import React from 'react';
 
-export const GameOver: React.FC = () => <>Hello world</>;
+export const GameOver: React.FC = () => <>Game Over</>;

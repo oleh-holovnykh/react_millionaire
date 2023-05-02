@@ -1,5 +1,6 @@
 import React from 'react';
 import thumbUp from '../../images/thumbUp.svg';
+import './GameStart.scss';
 
 interface Props {
   onStart: () => void;

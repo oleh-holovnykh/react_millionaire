@@ -1,0 +1,50 @@
+[
+  {
+    "stepId": 1,
+    "gain": 500
+  },
+  {
+    "stepId": 2,
+    "gain": 1000
+  },
+  {
+    "stepId": 3,
+    "gain": 2000
+  },
+  {
+    "stepId": 4,
+    "gain": 4000
+  },
+  {
+    "stepId": 5,
+    "gain": 8000
+  },
+  {
+    "stepId": 6,
+    "gain": 16000
+  },
+  {
+    "stepId": 7,
+    "gain": 32000
+  },
+  {
+    "stepId": 8,
+    "gain": 64000
+  },
+  {
+    "stepId": 9,
+    "gain": 125000
+  },
+  {
+    "stepId": 10,
+    "gain": 250000
+  },
+  {
+    "stepId": 11,
+    "gain": 500000
+  },
+  {
+    "stepId": 12,
+    "gain": 1000000
+  }
+]

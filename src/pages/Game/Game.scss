@@ -1,0 +1,28 @@
+.game-container {
+  display: flex;
+  height: 100vh;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 5;
+  background-color: #F5F5F7;
+  padding-top: 122px;
+  padding-left: 80px;
+  padding-bottom: 122px;
+}
+
+.result-container{
+  flex-grow: 1;
+  padding-top: 166px;
+}
+
+.question {
+  font-size: 32px;
+  font-weight: 600;
+  width: 622px;
+}
+
+
