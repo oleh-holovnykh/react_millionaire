@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react_millionaire/static/css/main.d365a8c1.css",
-    "main.js": "/react_millionaire/static/js/main.b0e8cf2b.js",
+    "main.js": "/react_millionaire/static/js/main.913738ad.js",
     "static/media/thumbUp.svg": "/react_millionaire/static/media/thumbUp.0fa02c02856a4ad3768c9e224364d117.svg",
     "index.html": "/react_millionaire/index.html",
     "static/media/cross.svg": "/react_millionaire/static/media/cross.46c988ed96b5dff532f35b64d057e9c3.svg",
     "static/media/burger.svg": "/react_millionaire/static/media/burger.4cc3cba447218668ce9e22ca3a4cea9b.svg",
     "main.d365a8c1.css.map": "/react_millionaire/static/css/main.d365a8c1.css.map",
-    "main.b0e8cf2b.js.map": "/react_millionaire/static/js/main.b0e8cf2b.js.map"
+    "main.913738ad.js.map": "/react_millionaire/static/js/main.913738ad.js.map"
   },
   "entrypoints": [
     "static/css/main.d365a8c1.css",
-    "static/js/main.b0e8cf2b.js"
+    "static/js/main.913738ad.js"
   ]
 }
