@@ -11,17 +11,15 @@
 }
 
 .question-container {
-  position: sticky;
-  // align-items: left;
   top: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 4;
   background-color: #F5F5F7;
-  padding-top: 133px;
+  padding-top: 12vh;
   padding-left: 80px;
-  padding-bottom: 122px;
+  padding-bottom: 4vh;
   overflow: auto;
   
   @include onPhone {
@@ -34,13 +32,19 @@
 
 .result-container{
   flex-grow: 1;
-  padding-top: 166px;
+  padding-top: 14vh;
   overflow: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
 
   @include onPhone {
     padding-top: 42px;
     background-color: #F5F5F7;
   }
+}
+
+.scrollFocus {
+  scroll-snap-align: end;
 }
 
 .question {

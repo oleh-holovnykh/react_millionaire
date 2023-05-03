@@ -1,11 +1,11 @@
-/* eslint-disable no-console */
 import React, {
-  useCallback, useEffect, useMemo, useState,
+  useCallback, useEffect, useState,
 } from 'react';
 import { Hexagon } from '../Hexagon';
-import { HexagonStyle } from '../../types/HexagonStyle';
+import { HexagonStyle } from '../../types/hexagonStyle';
 import './AnswersBlock.scss';
-import { GameStage } from '../../types/GameStage';
+import { GameStage } from '../../types/gameStage';
+import { TIMEOUT_AFTER_ANSWER, TIMEOUT_AFTER_RESULT } from '../../utils/_variables';
 
 interface Props {
   answers: string[];
@@ -24,11 +24,14 @@ export const AnswersBlock: React.FC<Props> = ({
   const [correctAnswers, setCorrectAnswers] = useState<string[]>([]);
   const [wrongAnswers, setWrongAnswers] = useState<string[]>([]);
 
-  const handleAnswerClick = useCallback((selectedAnswer: string) => {
-    if (selectedAnswers.length < correct.length) {
-      setSelectedAnswers((state) => [...state, selectedAnswer]);
-    }
-  }, [selectedAnswers, correct.length]);
+  const handleAnswerClick = useCallback(
+    (selectedAnswer: string) => {
+      if (selectedAnswers.length < correct.length) {
+        setSelectedAnswers((state) => [...state, selectedAnswer]);
+      }
+    },
+    [selectedAnswers, correct.length],
+  );
 
   useEffect(() => {
     if (selectedAnswers.length === correct.length) {
@@ -41,7 +44,7 @@ export const AnswersBlock: React.FC<Props> = ({
           }
         });
         setSelectedAnswers([]);
-      }, 2000);
+      }, TIMEOUT_AFTER_ANSWER);
     }
   }, [correct, selectedAnswers]);
 
@@ -50,7 +53,7 @@ export const AnswersBlock: React.FC<Props> = ({
       setTimeout(() => {
         onQuestionChange((state) => state + 1);
         setCorrectAnswers([]);
-      }, 2000);
+      }, TIMEOUT_AFTER_ANSWER);
     }
   }, [correct.length, correctAnswers, onQuestionChange]);
 
@@ -61,16 +64,14 @@ export const AnswersBlock: React.FC<Props> = ({
     ) {
       setTimeout(() => {
         onStageChange(GameStage.GAMEOVER);
-      }, 2500);
+      }, TIMEOUT_AFTER_RESULT);
     }
   }, [wrongAnswers, correctAnswers, correct, onStageChange]);
 
-  const disablePointerEvent = useMemo(() => (
-    correct.length === selectedAnswers.length
-    || correct.length === correctAnswers.length + wrongAnswers.length
-  ), [selectedAnswers, correctAnswers, wrongAnswers, correct]);
+  const disablePointerEvent = correct.length === selectedAnswers.length
+      || correct.length === correctAnswers.length + wrongAnswers.length;
 
-  const alphabet = useMemo(() => 'abcdefghijklmnopqrstuvwxyz', []);
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
   return (
     <div className="answers">

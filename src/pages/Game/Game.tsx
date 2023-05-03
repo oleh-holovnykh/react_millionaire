@@ -1,14 +1,14 @@
-/* eslint-disable no-console */
 import React, {
+  memo,
   useCallback, useEffect, useMemo, useState,
 } from 'react';
 import './Game.scss';
-import { Question } from '../../types/QuestionWithUnswer';
-import { Money } from '../../types/Money';
+import { Question } from '../../types/question';
+import { Money } from '../../types/money';
 import { AnswersBlock } from '../../components/AnswersBlock';
 import { ScoreBlock } from '../../components/ScoreBlock';
-import { GameStage } from '../../types/GameStage';
-import { BurgerMenu } from '../../types/BurgerMenu';
+import { GameStage } from '../../types/gameStage';
+import { BurgerMenu } from '../../types/burgerMenu';
 import burger_icon from '../../images/burger.svg';
 import cross_icon from '../../images/cross.svg';
 
@@ -20,7 +20,7 @@ interface Props {
   currentQuestionId: number;
 }
 
-export const Game: React.FC<Props> = ({
+export const Game: React.FC<Props> = memo(({
   questions,
   money,
   onStageChange,
@@ -28,14 +28,21 @@ export const Game: React.FC<Props> = ({
   currentQuestionId,
 }) => {
   const [width, setWidth] = useState(window.innerWidth);
-  const [burgerStatus, setBurgerStatus] = useState<BurgerMenu>(BurgerMenu.OPEN_SCORE);
+  const [burgerStatus, setBurgerStatus] = useState<BurgerMenu>(
+    BurgerMenu.OPEN_SCORE,
+  );
   const breakpoint = useMemo(() => 1198, []);
-  const currentQuestion = questions.find(
-    (question) => question.id === currentQuestionId,
-  ) || questions[questions.length - 1];
+  const currentQuestion = questions.find((question) => question.id === currentQuestionId)
+    || questions[questions.length - 1];
   const { answers, correct: correctAnswer } = currentQuestion!;
-  const displayQuestion = useMemo(() => burgerStatus === BurgerMenu.OPEN_SCORE, [burgerStatus]);
-  const displayScore = useMemo(() => burgerStatus === BurgerMenu.CLOSE_SCORE, [burgerStatus]);
+  const displayQuestion = useMemo(
+    () => burgerStatus === BurgerMenu.OPEN_SCORE,
+    [burgerStatus],
+  );
+  const displayScore = useMemo(
+    () => burgerStatus === BurgerMenu.CLOSE_SCORE,
+    [burgerStatus],
+  );
 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
@@ -54,7 +61,9 @@ export const Game: React.FC<Props> = ({
       {width > breakpoint && (
         <>
           <div className="question-container">
-            <p className="question">{currentQuestion?.content}</p>
+            <div className="question-wrapper">
+              <p className="question">{currentQuestion?.content}</p>
+            </div>
             <AnswersBlock
               answers={answers!}
               correct={correctAnswer!}
@@ -62,7 +71,7 @@ export const Game: React.FC<Props> = ({
               onQuestionChange={onQuestionChange}
             />
           </div>
-          <div className="result-container">
+          <div className="result-container" id="result-container">
             <ScoreBlock scores={money} currentId={currentQuestionId} />
           </div>
         </>
@@ -92,7 +101,7 @@ export const Game: React.FC<Props> = ({
       )}
       {width <= breakpoint && displayScore && (
         <>
-          <div className="result-container">
+          <div className="result-container" id="result-container">
             <ScoreBlock scores={money} currentId={currentQuestionId} />
           </div>
 
@@ -101,13 +110,10 @@ export const Game: React.FC<Props> = ({
             className="burger-btn"
             onClick={handleBurgerClick}
           >
-            <img
-              src={cross_icon}
-              alt="button to open question"
-            />
+            <img src={cross_icon} alt="button to open question" />
           </button>
         </>
       )}
     </div>
   );
-};
+});

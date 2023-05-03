@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import thumbUp from '../../images/thumbUp.svg';
 import './GameStart.scss';
 
@@ -6,7 +6,7 @@ interface Props {
   onStart: () => void;
 }
 
-export const GameStart: React.FC<Props> = ({ onStart }) => (
+export const GameStart: React.FC<Props> = memo(({ onStart }) => (
   <div className="container-wraper diagonal-split-background">
     <div className="container">
       <img className="image" src={thumbUp} alt="thumb up with stars" />
@@ -23,4 +23,4 @@ export const GameStart: React.FC<Props> = ({ onStart }) => (
       </div>
     </div>
   </div>
-);
+));

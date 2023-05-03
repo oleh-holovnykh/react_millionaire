@@ -1,50 +1,74 @@
 [
   {
     "id": 1,
-    "content": "What is the capital city of Australia?"
+    "content": "What is the capital city of Australia?",
+    "answers": ["Sydney", "Melbourne", "Canberra", "Perth"],
+    "correct" : ["Canberra"]
   },
   {
     "id": 2,
-    "content": "Who painted the Mona Lisa? (choose A. and B.)"
+    "content": "Who painted the Mona Lisa? (choose A. and B.)",
+    "answers": ["Leonardo di ser Piero da Vinci", "Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso"],
+    "correct" : ["Leonardo da Vinci","Leonardo di ser Piero da Vinci"]
   },
   {
     "id": 3,
-    "content": "What is the smallest planet in our solar system?"
+    "content": "What is the smallest planet in our solar system?",
+    "answers": ["Venus", "Mars", "Mercury", "Jupiter"],
+    "correct" : ["Mercury"]
   },
   {
     "id": 4,
-    "content": "What is the highest mountain in Africa?"
+    "content": "What is the highest mountain in Africa?",
+    "answers": ["Everest", "Kilimanjaro", "McKinley", "Fuji"],
+    "correct" : ["Kilimanjaro"]
   },
   {
     "id": 5,
-    "content": "Who invented the telephone?"
+    "content": "Who invented the telephone?",
+    "answers": ["Alexander Graham Bell", "Thomas Edison", "Albert Einstein", "Isaac Newton"],
+    "correct" : ["Alexander Graham Bell"]
   },
   {
     "id": 6,
-    "content": "What is the largest organ in the human body?"
+    "content": "What is the largest organ in the human body?",
+    "answers": ["Liver", "Heart", "Skin", "Brain"],
+    "correct" : ["Skin"]
   },
   {
     "id": 7,
-    "content": "What is the currency of Japan?"
+    "content": "What is the currency of Japan?",
+    "answers": ["Yen", "Euro", "Dollar", "Pound"],
+    "correct" : ["Yen"]
   },
   {
     "id": 8,
-    "content": "Which planet in our solar system has the most moons?"
+    "content": "Which planet in our solar system has the most moons?",
+    "answers": ["Jupiter", "Saturn", "Uranus", "Neptune"],
+    "correct" : ["Jupiter"]
   },
   {
     "id": 9,
-    "content": "Who wrote the novel \"The Great Gatsby\"?"
+    "content": "Who wrote the novel \"The Great Gatsby\"?",
+    "answers": ["Ernest Hemingway", "F. Scott Fitzgerald", "Mark Twain", "William Faulkner"],
+    "correct" : ["F. Scott Fitzgerald"]
   },
   {
     "id": 10,
-    "content": "What is the largest desert in the world?"
+    "content": "What is the largest desert in the world?",
+    "answers": ["Sahara", "Arabian", "Gobi", "Antarctic"],
+    "correct" : ["Sahara"]
   },
   {
     "id": 11,
-    "content": "Which planet in our solar system has the shortest day?"
+    "content": "Which planet in our solar system has the shortest day?",
+    "answers": ["Venus", "Mars", "Jupiter", "Saturn"],
+    "correct" : ["Venus"]
   },
   {
     "id": 12,
-    "content": "Who was the first person to step on the moon?"
+    "content": "Who was the first person to step on the moon?",
+    "answers": ["Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "John Glenn"],
+    "correct" : ["Neil Armstrong"]
   }
 ]

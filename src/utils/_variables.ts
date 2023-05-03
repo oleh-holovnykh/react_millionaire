@@ -1,0 +1,2 @@
+export const TIMEOUT_AFTER_ANSWER = 2000;
+export const TIMEOUT_AFTER_RESULT = 2000;

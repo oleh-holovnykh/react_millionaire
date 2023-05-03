@@ -31,9 +31,6 @@
     }
   }
 
-  // &::after {
-  //   left: 0;
-  // }
   &::before {
     right: 0;
   }
@@ -131,16 +128,22 @@
 
   &:before {
     transform: perspective(15px) rotateX(4deg);
-    top: -1.5px;
+    top: -1%;
     font-size: 32px;
+   
+    @include onPhone {
+      transform: perspective(10px) rotateX(4deg);
+      top: -3%;
+    }
   }
 
   &::after{
-    top: 37px;
+    top: 51%;
     transform: perspective(15px) rotateX(-4deg);
 
     @include onPhone {
-      top: 28px;
+      top: 51%;
+      transform: perspective(10px) rotateX(-4deg);
     }
   }
 
@@ -202,10 +205,10 @@
 
   &:before{
     transform: perspective(10px) rotateX(4deg);
-    top: -0.5px;
+    top: 0%;
   }
   &:after {
-    top: 50%;
+    top: 49%;
     transform: perspective(10px) rotateX(-4deg);
   }
 }
