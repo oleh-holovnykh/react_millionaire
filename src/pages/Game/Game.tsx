@@ -1,65 +1,60 @@
-/* eslint-disable no-console */
-import React, {
-  useCallback, useEffect, useMemo, useState,
-} from 'react';
+import React, { useMemo } from 'react';
 import './Game.scss';
 import { Question } from '../../types/QuestionWithUnswer';
 import { Money } from '../../types/Money';
 import { AnswersBlock } from '../../components/AnswersBlock';
 import { ScoreBlock } from '../../components/ScoreBlock';
-import { GameStage } from '../../types/GameStage';
 import { BurgerMenu } from '../../types/BurgerMenu';
 import burger_icon from '../../images/burger.svg';
 import cross_icon from '../../images/cross.svg';
 
 interface Props {
-  questions: Question[];
+  width: number;
+  answers: string[] | null;
+  breakPoint: number;
+  burgerStatus: BurgerMenu;
+  onBurgerClick:() => void;
+  currentQuestion: Question;
+  disablePointerEvent: boolean;
   money: Money[];
-  onStageChange: React.Dispatch<React.SetStateAction<GameStage>>;
-  onQuestionChange: React.Dispatch<React.SetStateAction<number>>;
   currentQuestionId: number;
+  selectedAnswers: string[];
+  correctAnswers: string[];
+  wrongAnswers: string[];
+  handleAnswerClick: (selectedAnswer: string) => void;
 }
 
 export const Game: React.FC<Props> = ({
-  questions,
+  width,
+  answers,
+  breakPoint,
+  burgerStatus,
+  onBurgerClick,
+  currentQuestion,
+  disablePointerEvent,
   money,
-  onStageChange,
-  onQuestionChange,
   currentQuestionId,
+  selectedAnswers,
+  correctAnswers,
+  wrongAnswers,
+  handleAnswerClick,
 }) => {
-  const [width, setWidth] = useState(window.innerWidth);
-  const [burgerStatus, setBurgerStatus] = useState<BurgerMenu>(BurgerMenu.OPEN_SCORE);
-  const breakpoint = useMemo(() => 1198, []);
-  const currentQuestion = questions.find(
-    (question) => question.id === currentQuestionId,
-  ) || questions[questions.length - 1];
-  const { answers, correct: correctAnswer } = currentQuestion!;
   const displayQuestion = useMemo(() => burgerStatus === BurgerMenu.OPEN_SCORE, [burgerStatus]);
   const displayScore = useMemo(() => burgerStatus === BurgerMenu.CLOSE_SCORE, [burgerStatus]);
 
-  useEffect(() => {
-    window.addEventListener('resize', () => setWidth(window.innerWidth));
-  }, []);
-
-  const handleBurgerClick = useCallback(() => {
-    if (burgerStatus === BurgerMenu.OPEN_SCORE) {
-      setBurgerStatus(BurgerMenu.CLOSE_SCORE);
-    } else {
-      setBurgerStatus(BurgerMenu.OPEN_SCORE);
-    }
-  }, [burgerStatus, setBurgerStatus]);
-
   return (
     <div className="game-container">
-      {width > breakpoint && (
+      {width > breakPoint && (
         <>
           <div className="question-container">
             <p className="question">{currentQuestion?.content}</p>
             <AnswersBlock
               answers={answers!}
-              correct={correctAnswer!}
-              onStageChange={onStageChange}
-              onQuestionChange={onQuestionChange}
+              disablePointerEvent={disablePointerEvent}
+              selectedAnswers={selectedAnswers}
+              correctAnswers={correctAnswers}
+              wrongAnswers={wrongAnswers}
+              onAnswerClick={handleAnswerClick}
             />
           </div>
           <div className="result-container">
@@ -67,7 +62,7 @@ export const Game: React.FC<Props> = ({
           </div>
         </>
       )}
-      {width < breakpoint && displayQuestion && (
+      {width < breakPoint && displayQuestion && (
         <>
           <div className="question-container">
             <div className="question-wrapper">
@@ -75,22 +70,24 @@ export const Game: React.FC<Props> = ({
             </div>
             <AnswersBlock
               answers={answers!}
-              correct={correctAnswer!}
-              onStageChange={onStageChange}
-              onQuestionChange={onQuestionChange}
+              disablePointerEvent={disablePointerEvent}
+              selectedAnswers={selectedAnswers}
+              correctAnswers={correctAnswers}
+              wrongAnswers={wrongAnswers}
+              onAnswerClick={handleAnswerClick}
             />
           </div>
 
           <button
             type="button"
             className="burger-btn"
-            onClick={handleBurgerClick}
+            onClick={onBurgerClick}
           >
             <img src={burger_icon} alt="button to open score" />
           </button>
         </>
       )}
-      {width <= breakpoint && displayScore && (
+      {width <= breakPoint && displayScore && (
         <>
           <div className="result-container">
             <ScoreBlock scores={money} currentId={currentQuestionId} />
@@ -99,7 +96,7 @@ export const Game: React.FC<Props> = ({
           <button
             type="button"
             className="burger-btn"
-            onClick={handleBurgerClick}
+            onClick={onBurgerClick}
           >
             <img
               src={cross_icon}

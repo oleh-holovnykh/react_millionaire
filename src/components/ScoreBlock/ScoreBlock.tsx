@@ -3,7 +3,6 @@ import React from 'react';
 import { Money } from '../../types/Money';
 import { HexagonStyle } from '../../types/HexagonStyle';
 import './ScoreBlock.scss';
-// import { ScoreHexagon } from '../ScoreHexagon';
 import { Hexagon } from '../Hexagon';
 
 interface Props {
