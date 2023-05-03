@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import thumbUp from '../../images/thumbUp.svg';
 import './GameOver.scss';
 
@@ -7,7 +7,7 @@ interface Props {
   currentScore: string,
 }
 
-export const GameOver: React.FC<Props> = ({ onStart, currentScore }) => (
+export const GameOver: React.FC<Props> = memo(({ onStart, currentScore }) => (
   <div className="container-wraper">
     <div className="container">
       <img className="image" src={thumbUp} alt="thumb up with stars" />
@@ -25,4 +25,4 @@ export const GameOver: React.FC<Props> = ({ onStart, currentScore }) => (
       </div>
     </div>
   </div>
-);
+));

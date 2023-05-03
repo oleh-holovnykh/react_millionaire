@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import './Hexagon.scss';
 import { HexagonStyle } from '../../types/HexagonStyle';
 
@@ -10,7 +10,7 @@ interface Props {
   disablePointerEvent?: boolean;
 }
 
-export const Hexagon: React.FC<Props> = ({
+export const Hexagon: React.FC<Props> = memo(({
   content,
   hexagonStyle,
   onAnswerClick,
@@ -73,9 +73,4 @@ export const Hexagon: React.FC<Props> = ({
       </div>
     </div>
   );
-};
-
-Hexagon.defaultProps = {
-  onAnswerClick: undefined,
-  disablePointerEvent: undefined,
-};
+});

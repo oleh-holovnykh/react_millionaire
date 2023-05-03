@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React from 'react';
+import React, { memo } from 'react';
 import { Money } from '../../types/Money';
 import { HexagonStyle } from '../../types/HexagonStyle';
 import './ScoreBlock.scss';
@@ -10,7 +10,7 @@ interface Props {
   currentId: number;
 }
 
-export const ScoreBlock: React.FC<Props> = ({ scores, currentId }) => (
+export const ScoreBlock: React.FC<Props> = memo(({ scores, currentId }) => (
   <>
     {scores
       .map((score, id) => {
@@ -32,4 +32,4 @@ export const ScoreBlock: React.FC<Props> = ({ scores, currentId }) => (
       })
       .reverse()}
   </>
-);
+));

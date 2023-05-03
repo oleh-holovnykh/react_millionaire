@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import { Hexagon } from '../Hexagon';
 import { HexagonStyle } from '../../types/HexagonStyle';
 import './AnswersBlock.scss';
@@ -12,7 +12,7 @@ interface Props {
   onAnswerClick: (selectedAnswer: string) => void;
 }
 
-export const AnswersBlock: React.FC<Props> = ({
+export const AnswersBlock: React.FC<Props> = memo(({
   answers,
   disablePointerEvent,
   selectedAnswers,
@@ -54,4 +54,4 @@ export const AnswersBlock: React.FC<Props> = ({
       })}
     </div>
   );
-};
+});

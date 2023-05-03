@@ -17,7 +17,7 @@ The application includes the following features:
 - Mobile version with a simplified UI
 - Scoreboard displaying the player's progress
 
-##Installation
+## Installation
 To install the application locally, follow these steps:
 
 - Clone the repository: git clone https://github.com/oleh-holovnykh/react_millionaire.git

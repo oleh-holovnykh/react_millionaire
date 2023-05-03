@@ -10,7 +10,7 @@ import { questionsWithAnswers } from './helpers/questions-with-unswers';
 import money from './api/money.json';
 import { BurgerMenu } from './types/BurgerMenu';
 
-function App() {
+export const App:React.FC = () => {
   const [gameStage, setGameStage] = useState<GameStage>(GameStage.START);
   const [currentQuestionId, setCurrentQuestionId] = useState<number>(1);
   const [burgerStatus, setBurgerStatus] = useState<BurgerMenu>(BurgerMenu.OPEN_SCORE);
@@ -128,6 +128,4 @@ function App() {
       && <GameOver onStart={handleStart} currentScore={currentScore} />}
     </>
   );
-}
-
-export default App;
+};

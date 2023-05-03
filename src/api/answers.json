@@ -11,7 +11,7 @@
   },
   {
     "questionId": 3,
-    "answers": ["Venus", "Mars", "Mercury", "Jupiter"],
+    "answers": ["Venus", "Mars", "Mercury", "Jupiter", "Earth", "Pluto"],
     "correct" : ["Mercury"]
   },
   {

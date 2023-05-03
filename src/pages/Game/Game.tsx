@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { memo, useMemo } from 'react';
 import './Game.scss';
 import { Question } from '../../types/QuestionWithUnswer';
 import { Money } from '../../types/Money';
@@ -24,7 +24,7 @@ interface Props {
   handleAnswerClick: (selectedAnswer: string) => void;
 }
 
-export const Game: React.FC<Props> = ({
+export const Game: React.FC<Props> = memo(({
   width,
   answers,
   breakPoint,
@@ -107,4 +107,4 @@ export const Game: React.FC<Props> = ({
       )}
     </div>
   );
-};
+});
