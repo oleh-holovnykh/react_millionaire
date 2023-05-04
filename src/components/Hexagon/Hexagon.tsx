@@ -1,5 +1,5 @@
 /* eslint-disable indent */
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 import './Hexagon.scss';
 import { HexagonStyle } from '../../types/hexagonStyle';
 
@@ -16,9 +16,9 @@ export const Hexagon: React.FC<Props> = memo(({
   onAnswerClick,
   disablePointerEvent,
 }) => {
-  let containerStyles = useMemo(() => 'hexagon-container', []);
-  let hexagonStyles = useMemo(() => 'hexagon', []);
-  let isDisabled = useMemo(() => true, []);
+  let containerStyles = 'hexagon-container';
+  let hexagonStyles = 'hexagon';
+  let isDisabled = true;
 
   switch (hexagonStyle) {
     case HexagonStyle.DEFAULT_SCORE:
@@ -54,7 +54,7 @@ export const Hexagon: React.FC<Props> = memo(({
       break;
   }
 
-  const answer = useMemo(() => content.slice(2), [content]);
+  const answer = content.slice(2);
 
   return (
     <div className="hexagon-wrapper">

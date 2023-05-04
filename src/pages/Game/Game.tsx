@@ -1,6 +1,6 @@
 import React, {
   memo,
-  useCallback, useEffect, useMemo, useState,
+  useCallback, useEffect, useState,
 } from 'react';
 import './Game.scss';
 import { Question } from '../../types/question';
