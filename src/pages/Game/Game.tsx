@@ -31,18 +31,12 @@ export const Game: React.FC<Props> = memo(({
   const [burgerStatus, setBurgerStatus] = useState<BurgerMenu>(
     BurgerMenu.OPEN_SCORE,
   );
-  const breakpoint = useMemo(() => 1198, []);
+  const breakpoint = 1198;
   const currentQuestion = questions.find((question) => question.id === currentQuestionId)
     || questions[questions.length - 1];
   const { answers, correct: correctAnswer } = currentQuestion!;
-  const displayQuestion = useMemo(
-    () => burgerStatus === BurgerMenu.OPEN_SCORE,
-    [burgerStatus],
-  );
-  const displayScore = useMemo(
-    () => burgerStatus === BurgerMenu.CLOSE_SCORE,
-    [burgerStatus],
-  );
+  const displayQuestion = burgerStatus === BurgerMenu.OPEN_SCORE;
+  const displayScore = burgerStatus === BurgerMenu.CLOSE_SCORE;
 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth));
