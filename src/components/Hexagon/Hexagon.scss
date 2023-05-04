@@ -128,7 +128,7 @@
 
   &:before {
     transform: perspective(15px) rotateX(4deg);
-    top: -1%;
+    top: -2%;
     font-size: 32px;
    
     @include onPhone {
